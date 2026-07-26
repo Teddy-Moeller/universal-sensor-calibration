@@ -1,1 +1,10 @@
+# Universal Sensor Calibration
+#
+# Format:
+# sensor.entity_id: offset
+#
+# Example:
 
+# sensor.office_m_office_climate_1_temperature: 0.5
+# sensor.bedroom_humidity: -0.8
+# sensor.outdoor_temperature: 1.2
