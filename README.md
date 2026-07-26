@@ -58,3 +58,13 @@ Two-point linear calibration
 ## v4.0
 
 Multi-point interpolation calibration
+
+# Attribution
+
+Original Author:
+- Teddy Møller
+
+Original Repository:
+- https://github.com/<your-github-username>/universal-sensor-calibration
+
+Please retain attribution when creating forks or derivative works.
