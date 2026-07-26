@@ -65,6 +65,6 @@ Original Author:
 - Teddy Møller
 
 Original Repository:
-- https://github.com/<your-github-username>/universal-sensor-calibration
+- https://github.com/teddy-moeller/universal-sensor-calibration
 
 Please retain attribution when creating forks or derivative works.
