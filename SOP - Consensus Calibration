@@ -50,7 +50,7 @@ Consensus value = **22.0 °C**
 
 #### 5. Calculate the Offset
 
-For each sensor, calculate its **offset** (the difference between the sensor reading and the consensus value).
+For each sensor, calculate its **Calibration offset** (the difference between the sensor reading and the consensus value).
 
 Example:
 
@@ -70,10 +70,10 @@ sensor.garage_temperature: 0
 
 Where the key is the sensor name and the value is the calculated offset. Positive values increase the reported measurement, while negative values decrease it.
 
-Save the file and reload the calibration configuration (or restart Home Assistant, if required) for the new offsets to take effect.
+Save the file and reload the calibration configuration (or restart Home Assistant, if required) for the new calibration offsets to take effect.
 
 ### Notes
 
 * This procedure performs **relative calibration** (making sensors agree with one another), not **absolute calibration** (matching a traceable reference).
 * Increasing the number of sensors generally improves confidence in the consensus value.
-* If one sensor is a clear **outlier** (its reading differs significantly from the rest of the group), investigate the sensor before applying an offset, as it may indicate a faulty device or incorrect placement.
+* If one sensor is a clear **outlier** (its reading differs significantly from the rest of the group), investigate the sensor before applying the calibration offset, as it may indicate a faulty device or incorrect placement.
