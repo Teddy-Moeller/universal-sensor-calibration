@@ -29,6 +29,7 @@ A custom Home Assistant integration that applies calibration only to selected se
    Enter your sensors and offset.
    Example:
    
+```yaml
 sensor.office_temperature:
   - measured: 25.0
     reference: 25.52
@@ -36,6 +37,7 @@ sensor.office_temperature:
 sensor.bedroom_temperature:
   - measured: 21.0
     reference: 20.17
+```
 
 4. Edit configuration.yaml
    sensor_calibration:
