@@ -39,14 +39,14 @@ A custom Home Assistant integration that applies calibration only to selected se
 
 
 # Current Version
-## v1.0
+## v0.1.0
 
 Single-point offset calibration
 Calibration applied to original sensor entity
 No duplicate entities created
 Recursion protection included
 
-## v2.0
+## v0.2.0
 
 New calibration point format:
 
@@ -56,13 +56,17 @@ sensor.name:
 
 # Roadmap
 
-## v3.0
+## v0.3.0
 
 Two-point linear calibration
 
-## v4.0
+## v0.4.0
 
 Multi-point interpolation calibration
+
+## v0.5.0
+
+Released to HACS
 
 # Attribution
 
