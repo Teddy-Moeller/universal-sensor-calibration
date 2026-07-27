@@ -25,9 +25,10 @@ A custom Home Assistant integration that applies calibration only to selected se
 1. Copy the integration to:
    /config/custom_components/sensor_calibration/
 
-2. Edit calibration.yaml
-   Enter your sensors and offset.
-   Example:
+2. Edit calibration.yaml and enter your measured and reference values.
+Do not include units.
+
+Example::
    
 ```yaml
 sensor.office_temperature:
