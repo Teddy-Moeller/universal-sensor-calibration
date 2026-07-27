@@ -46,10 +46,15 @@ Calibration applied to original sensor entity
 No duplicate entities created
 Recursion protection included
 
-# Roadmap
 ## v2.0
 
-Single calibration point format
+New calibration point format:
+
+sensor.name:
+  measured: x
+  referense: y
+
+# Roadmap
 
 ## v3.0
 
