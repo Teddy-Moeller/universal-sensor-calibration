@@ -8,9 +8,10 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "sensor_calibration"
 
-
 async def async_setup(hass, config):
-
+    
+    _LOGGER.info("Universal Sensor Calibration loading.")
+    
     calibration_file = os.path.join(
         hass.config.config_dir,
         "custom_components",
@@ -21,10 +22,7 @@ async def async_setup(hass, config):
     with open(calibration_file, "r") as f:
         calibrations = yaml.safe_load(f) or {}
 
-    _LOGGER.info(
-        "Loaded %s sensor calibrations",
-        len(calibrations)
-    )
+    _LOGGER.info("calibration.yaml loaded.")
 
     async def state_changed(event):
 
@@ -60,6 +58,11 @@ async def async_setup(hass, config):
         hass,
         list(calibrations.keys()),
         state_changed
+    )
+    
+    _LOGGER.info(
+        "Universal Sensor Calibration loaded and running with %s sensors.",
+        len(calibrations),
     )
 
     return True
