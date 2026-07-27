@@ -66,10 +66,9 @@ Example:
 
 Add the calculated offset for each sensor to your `calibration.yaml` file using the following format:
 
-```yaml
+yaml:
 sensor.living_room_temperature: 0.2
 sensor.bedroom_temperature: -0.3
-```
 
 Where the key is the sensor's entity ID and the value is the calculated offset. Positive values increase the reported measurement, while negative values decrease it.
 
