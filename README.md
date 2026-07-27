@@ -28,9 +28,14 @@ A custom Home Assistant integration that applies calibration only to selected se
 2. Edit calibration.yaml
    Enter your sensors and offset.
    Example:
-     sensor.office_temperature: 0.52
-     sensor.bedroom_temperature: -0.83
-     sensor.outdoor_humidity: 1.2
+   
+sensor.office_temperature:
+  - measured: 25.0
+    reference: 25.52
+
+sensor.bedroom_temperature:
+  - measured: 21.0
+    reference: 20.17
 
 4. Edit configuration.yaml
    sensor_calibration:
@@ -52,7 +57,7 @@ New calibration point format:
 
 sensor.name:
   measured: x
-  referense: y
+  reference: y
 
 # Roadmap
 
@@ -66,7 +71,7 @@ Multi-point interpolation calibration
 
 ## v0.5.0
 
-Released to HACS
+First Public Release (HACS)
 
 # Attribution
 
