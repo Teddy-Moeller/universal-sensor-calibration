@@ -51,7 +51,7 @@ For example:
 | Living Room Sensor    | 21.8 °C |
 | Bedroom Sensor        | 22.3 °C |
 
-#### 5. Calculate the Offset
+#### 5. Calculate the Calibration Offset
 
 For each sensor, calculate its **offset** (the reference thermometer reading minus the sensor reading). This is the value that will be entered into `calibration.yaml`.
 
@@ -62,7 +62,7 @@ Example:
 | Living Room | 21.8 °C |         +0.2 °C |
 | Bedroom     | 22.3 °C |         −0.3 °C |
 
-#### 6. Apply the Offset
+#### 6. Apply the Calibration Offset
 
 Add the calculated offset for each sensor to your `calibration.yaml` file using the following format:
 
@@ -73,7 +73,7 @@ sensor.bedroom_temperature: -0.3
 
 Where the key is the sensor's entity ID and the value is the calculated offset. Positive values increase the reported measurement, while negative values decrease it.
 
-Save the file and reload the calibration configuration for the new offsets to take effect.
+Save the file and restart Home assistant for the new offsets to take effect.
 
 ### Notes
 
