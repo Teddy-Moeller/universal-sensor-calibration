@@ -35,6 +35,7 @@ sensor.temp_original:
 (checked mean passed)
 
 - [ ] The excluded sensor functions as expected.
+- [ ] The calibrated sensors remain within expected values and do not exhibit runaway calibration behaviour.
 - [ ] The sensor configured to produce an offset of 100 reports a value increased by 100.
 - [ ] The sensor configured to produce an offset of -100 reports a value decreased by 100.
 - [ ] The sensor configured to produce an offset of 0 reports the original value unchanged.
