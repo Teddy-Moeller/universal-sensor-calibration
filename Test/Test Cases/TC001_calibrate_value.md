@@ -9,21 +9,23 @@
 
 ---
 ## Objective
-
 Verify that a configured calibration point set changes the sensor value according to the configured calibration values.
 
 ## Steps
-
 1. Configure three available sensors with the following calibration point sets: (replace sensor names to match your setup.)
-   a. sensor.temp_plus100:
-         - measured: 0.0
-           reference: 100.0
-   b. sensor.temp_minus100:
-         - measured: 0.0
-           reference: -100.0
-   c. sensor.temp_original:
-         - measured: 0.0
-           reference: 0.0
+```yaml
+sensor.temp_plus100:
+  - measured: 0.0
+    reference: 100.0
+
+sensor.temp_minus100:
+  - measured: 0.0
+    reference: -100.0
+
+sensor.temp_original:
+  - measured: 0.0
+    reference: 0.0
+```
 2. Restart Home Assistant.
 3. Wait for a sensor update.
 4. Compare original and calibrated values.
