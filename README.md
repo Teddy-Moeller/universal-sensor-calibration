@@ -45,6 +45,19 @@ sensor.bedroom_temperature:
 
 5. Restart Home Assistant.
 
+## Scope
+
+Universal Sensor Calibration only processes numeric sensor states.
+Sensors returning text values such as `33%`, `25°C`, `ON`, `OFF`, `OPEN`, `55°40'34.0"N`, `55.6761,12.5683`, or other non-numeric values are ignored.
+
+Examples of valid numeric equivalents include:
+
+- `33` instead of `33%`
+- `25` instead of `25°C`
+- `55.6761` instead of `55°40'34.0"N`
+- `55.6761` and `12.5683` instead of `55.6761,12.5683`
+
+Values such as `ON`, `OFF`, and `OPEN` have no meaningful numeric equivalent and are therefore not calibration candidates.
 
 # Current Version
 ## v0.1.0
