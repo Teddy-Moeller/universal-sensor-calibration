@@ -1,4 +1,4 @@
-# TC002 - Calibrate Few Value
+# TC002 - Core Function
 ---
 # Result
 
