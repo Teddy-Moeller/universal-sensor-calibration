@@ -40,10 +40,10 @@ sensor.bedroom_temperature:
     reference: 20.17
 ```
 
-4. Edit configuration.yaml
+3. Edit configuration.yaml
    sensor_calibration:
 
-5. Restart Home Assistant.
+4. Restart Home Assistant.
 
 ## Scope
 
@@ -113,3 +113,10 @@ Universal Sensor Calibration was created to solve a practical calibration need i
 My background is primarily in software testing, calibration techniques, laboratory processes, and quality assurance rather than software development. The project is therefore developed with a strong focus on documentation, testing, traceability, and practical usability.
 
 While I continue to learn Python and Home Assistant development, feedback and constructive suggestions are always welcome.
+
+### Project Philosophy
+
+Enough process to create confidence.
+Not enough process to create frustration.
+
+This is the Way.
