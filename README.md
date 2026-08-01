@@ -76,9 +76,11 @@ Recursion protection included
 
 New calibration point format:
 
+```yaml
 sensor.name:
   measured: x
   reference: y
+```
 
 # Roadmap
 
