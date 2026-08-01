@@ -31,17 +31,18 @@ For each item in the following list, replace XXX with the specified value:
 For each item in the following list, replace XXX with the specified value:
 
 ```text
-a. 123abc     # Numbers then plain text
-b. abc123     # Plain text then numbers
-c. abc        # Plain text
-d. @          # Common special character
-e. #          # Common special character
-f. $          # Common special character
-g. %          # Common special character
-h. !          # Common special character
-i. 25°C       # Value with unit/special character
-j. [0]        # Structured data
-k. {0}        # Structured data
+a. 123abc           # Numbers then plain text
+b. abc123           # Plain text then numbers
+c. abc              # Plain text
+d. @                # Common special character
+e. #                # Common special character
+f. $                # Common special character
+g. %                # Common special character
+h. !                # Common special character
+i. 25°C             # Value with unit/special character
+j. 55.6761, 12.5683 # Multiple numerical values in a single calibration field. Associated with GPS coordinates
+k. [0]              # Structured data
+l. {0}              # Structured data
 ```
 
 3. Also misspell a sensor name on purpose.
