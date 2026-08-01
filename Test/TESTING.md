@@ -12,10 +12,15 @@ A passing test report does not guarantee identical results on all systems.
 
 Users are encouraged to execute the provided test cases within their own environment.
 
+## Recommended Test Execution
+
+To help ensure that testing activities themselves have not adversely affected Home Assistant or Universal Sensor Calibration, it is recommended to execute the "Minimal Viable Startup" test case as both the first and the last test case in the test suite.
+
+This helps confirm that testing has not left Universal Sensor Calibration or Home Assistant in an unexpected or unstable state.
+
 ## Post-Release Validation Strategy
 
 Following the first public release, Universal Sensor Calibration will be validated against the first two Home Assistant monthly releases.
-Following the first public release, Universal Sensor Calibration will be validated against the first three Home Assistant monthly releases.
 
 Example:
 
