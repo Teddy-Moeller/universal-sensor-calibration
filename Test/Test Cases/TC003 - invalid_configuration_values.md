@@ -14,7 +14,8 @@ The selected special characters represent the most commonly used keyboard specia
 
 ## Steps
 
-1. In the calibration.yaml file use the format:
+1. Backup the current calibration.yaml
+2. In the calibration.yaml file use the format:
 
 ```yaml
 sensor.name:
@@ -39,24 +40,24 @@ For each item in the following list, replace XXX with the specified value:
    j. [0]                   # Structured data
    k. {0}                   # Structured data
 
-2. Also misspell a sensor name on purpose.
+3. Also misspell a sensor name on purpose.
 ```yaml
 sensor.name.misspelled:
   - measured: 0.0
     reference: 0.0
 ```
 
-3. At the end of calibration.yaml, add one known-good calibration entry.
+4. At the end of calibration.yaml, add one known-good calibration entry.
 ```yaml
 sensor.valid_test:
   - measured: 0.0
     reference: 100.0
 ```
 
-4. Save the calibration.yaml file.
-5. Reboot Home Assistant.
-6. Check log file.
-7. Check calibrated sensors used in the list above for expected errors.
+5. Save the calibration.yaml file.
+6. Reboot Home Assistant.
+7. Assess test results against expected results.
+8. Restore the backed up calibration.yaml
 
 ## Expected Result
 (checked mean passed)
