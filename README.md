@@ -28,7 +28,7 @@ A custom Home Assistant integration that applies calibration only to selected se
 2. Edit calibration.yaml and enter your measured and reference values.
 Do not include units.
 
-Example::
+Example:
    
 ```yaml
 sensor.office_temperature:
@@ -48,6 +48,11 @@ sensor.bedroom_temperature:
 ## Scope
 
 Universal Sensor Calibration only processes numeric sensor states.
+
+Non-existing sensor entities are ignored by design.
+USC subscribes to configured entities.
+If no state updates are received, no calibration actions are performed.
+
 Sensors returning text values such as `33%`, `25°C`, `ON`, `OFF`, `OPEN`, `55°40'34.0"N`, `55.6761,12.5683`, or other non-numeric values are ignored.
 
 Examples of valid numeric equivalents include:
