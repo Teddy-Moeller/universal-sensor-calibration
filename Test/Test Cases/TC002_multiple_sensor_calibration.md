@@ -22,7 +22,13 @@ A minimum of 30 configured sensors is recommended for meaningful test coverage.
 2. Configure multiple sensors in `calibration.yaml`.
 
    Note:
-   For testing purposes an offset of `0` may be used.
+   For testing purposes an offset of `0` may be used. Also remember the code below is an example.
+
+```yaml
+sensor.temp_original:
+  - measured: 0.0
+    reference: 0.0
+```
 
 3. Restart Home Assistant.
 
