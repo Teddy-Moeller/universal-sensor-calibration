@@ -67,10 +67,10 @@ I the above example it is clear Living Room sensor is significantly lower than t
 
 For normal Home Assistant projects the "Common Sense" approach should be good enough. But if you want to do a little extra or just want to learn to use the Chi Square Test I have found a good explanation here: https://academicworks.cuny.edu/cgi/viewcontent.cgi?params=/context/qb_oers/article/1133/&path_info=auto_convert.pdf
 
-#### 5. Apply the Calibration Offset
+#### 5. Apply the Measurements
 
 
-For each sensor, add the meassured value and the reference value into `calibration.yaml` as shown below.
+For each sensor, add the measured value and the reference value into `calibration.yaml` as shown below.
 
 ```yaml
 sensor.livingroom_temperature:
