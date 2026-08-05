@@ -34,7 +34,23 @@ Allow the sensors to stabilize for at least 15 minutes so they reach thermal equ
 
 Once the readings have stabilized, record the value reported by each sensor. Read all sensors within as short a time as practical so they represent the same environmental conditions.
 
-#### 4. Determine the Consensus Value
+#### 4. Value Analysis
+
+If one sensor is a clear **outlier** (its reading differs significantly from the rest of the group), investigate the sensor before applying the calibration offset, as it may indicate a faulty device or incorrect placement.
+
+| Sensor | Reading |
+| ------ | ------: |
+| A      | 21.8 °C |
+| B      | 29.8 °C |
+| C      | 22.2 °C |
+
+I the above example it is clear sensor B is significantly higher than A and C. There is two techniques to determine if a value is an outlier:
+1: Common Sense
+2: Chi-Square test (x2)
+
+For normal Home Assistant projects the "Common Sense" approach should be good enough. But if you want to do a little extra or just want to learn to use the Chi Square Test I have found a good explanation here: https://academicworks.cuny.edu/cgi/viewcontent.cgi?params=/context/qb_oers/article/1133/&path_info=auto_convert.pdf
+
+#### 5. Determine the Consensus Value
 
 Calculate the **arithmetic mean (average)** of all sensor readings. This value becomes the **consensus value** used as the reference value for calculating each sensor's offset.
 
@@ -48,7 +64,7 @@ For example:
 
 Consensus value = **22.0 °C**
 
-#### 5. Calculate the Offset
+#### 6. Calculate the Offset
 
 For each sensor, calculate its **Calibration offset** (the difference between the sensor reading and the consensus value).
 
@@ -60,13 +76,19 @@ Example:
 | B      | 22.0 °C |          0.0 °C |
 | C      | 22.2 °C |         −0.2 °C |
 
-#### 6. Apply the Offset
+#### 7. Apply the Offset
 
-Add the calculated offset for each sensor to your calibration.yaml file using the following format:
+Add the calculated offset for each sensor to your calibration.yaml file as the reference, using the following format:
 
-sensor.living_room_temperature: 0.2
-sensor.bedroom_temperature: -0.1
-sensor.garage_temperature: 0
+```yaml
+sensor.office_temperature:
+  - measured: 25.0
+    reference: 25.52
+
+sensor.bedroom_temperature:
+  - measured: 21.0
+    reference: 20.17
+```
 
 Where the key is the sensor name and the value is the calculated offset. Positive values increase the reported measurement, while negative values decrease it.
 
@@ -76,4 +98,3 @@ Save the file and reload the calibration configuration (or restart Home Assistan
 
 * This procedure performs **relative calibration** (making sensors agree with one another), not **absolute calibration** (matching a traceable reference).
 * Increasing the number of sensors generally improves confidence in the consensus value.
-* If one sensor is a clear **outlier** (its reading differs significantly from the rest of the group), investigate the sensor before applying the calibration offset, as it may indicate a faulty device or incorrect placement.
