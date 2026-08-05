@@ -51,16 +51,9 @@ For example:
 | Living Room Sensor    | 21.8 °C |
 | Bedroom Sensor        | 22.3 °C |
 
-#### 4. Common Sense Evaluation
+#### 5. Enter the Calibration Data
 
-Home sensors vary naturally in quality and precision. Instead of complex math, use your common sense after calibration:
-* **The 2-Degree Suggestion:** I suggest that all sensors should ideally stay within 2 degrees of each other (or the reference) after calibration.
-* **What to do:** If a sensor still drifts more than 2 degrees away, it might just be a low-quality unit. Consider placing it in a less critical room (like a hallway or garage) rather than throwing it away, or try changing the battery.
-
-#### 5. Apply the Measurements
-
-
-For each sensor, add the measured value and the reference value into `calibration.yaml` as shown below.
+For each sensor, add the sensor's measured value together with the reference value to your calibration.yaml file using the following format:
 
 ```yaml
 sensor.livingroom_temperature:
@@ -74,7 +67,13 @@ sensor.office_temperature:
 
 The Universal Sensor Calibration will automatically calculate the offset and apply it to the sensor.
 
-Save the file and restart Home assistant for the new offsets to take effect.
+Save the file and restart Home Assistant for the new offsets to take effect.
+
+#### 6. Common Sense Evaluation
+
+Home sensors vary naturally in quality and precision. Instead of complex math, use your common sense after calibration:
+* **The 2-Degree Suggestion:** I suggest that all sensors should ideally stay within 2 degrees of each other (or the reference) after calibration.
+* **What to do:** If a sensor still drifts more than 2 degrees away, it might just be a low-quality unit. Consider placing it in a less critical room (like a hallway or garage) rather than throwing it away, or try changing the battery.
 
 ### Notes
 
