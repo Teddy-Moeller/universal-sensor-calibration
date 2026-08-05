@@ -48,7 +48,7 @@ For example:
 
 Consensus value = **22.0 °C**
 
-#### 5. Apply the Calibration
+#### 5. Enter the Calibration Data
 
 For each sensor, add the sensor's measured value together with the consensus value determined in Step 4 to your calibration.yaml file using the following format:
 
