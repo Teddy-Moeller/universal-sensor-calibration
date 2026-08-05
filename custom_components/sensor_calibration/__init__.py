@@ -19,9 +19,14 @@ async def async_setup(hass, config):
         DOMAIN,
         "calibration.yaml"
     )
-
-    with open(calibration_file, "r") as f:
-        calibrations = yaml.safe_load(f) or {}
+    
+    def load_calibrations():
+        with open(calibration_file, "r") as f:
+            return yaml.safe_load(f) or {}
+    
+    calibrations = await hass.async_add_executor_job(
+        load_calibrations
+    )
 
     _LOGGER.info("calibration.yaml loaded.")
 
