@@ -51,21 +51,11 @@ For example:
 | Living Room Sensor    | 21.8 °C |
 | Bedroom Sensor        | 22.3 °C |
 
-#### 4. Value Analysis
+#### 4. Common Sense Evaluation
 
-If one sensor is a clear **outlier** (its reading differs significantly from reference), investigate the sensor before applying the meassurements, as it may indicate a faulty device or incorrect placement.
-
-| Device                | Reading |
-| --------------------- | ------: |
-| Reference Thermometer | 22.0 °C |
-| Living Room Sensor    | 10.8 °C |
-| Bedroom Sensor        | 22.3 °C |
-
-I the above example it is clear Living Room sensor is significantly lower than the reference. There is two techniques to determine if a value is an outlier:
-1: Common Sense
-2: Chi-Square test (x2)
-
-For normal Home Assistant projects the "Common Sense" approach should be good enough. But if you want to do a little extra or just want to learn to use the Chi Square Test I have found a good explanation here: https://academicworks.cuny.edu/cgi/viewcontent.cgi?params=/context/qb_oers/article/1133/&path_info=auto_convert.pdf
+Home sensors vary naturally in quality and precision. Instead of complex math, use your common sense after calibration:
+* **The 2-Degree Suggestion:** I suggest that all sensors should ideally stay within 2 degrees of each other (or the reference) after calibration.
+* **What to do:** If a sensor still drifts more than 2 degrees away, it might just be a low-quality unit. Consider placing it in a less critical room (like a hallway or garage) rather than throwing it away, or try changing the battery.
 
 #### 5. Apply the Measurements
 
