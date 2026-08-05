@@ -36,7 +36,7 @@ Once the readings have stabilized, record the value reported by each sensor. Rea
 
 #### 4. Determine the Consensus Value
 
-Calculate the **arithmetic mean (average)** of all sensor readings. This value becomes the **consensus value** used as the reference value for calculating each sensor's offset.
+Calculate the **arithmetic mean (average)** of all sensor readings. This value becomes the **consensus value** used as the reference value.
 
 For example:
 
@@ -50,7 +50,7 @@ Consensus value = **22.0 °C**
 
 #### 5. Enter the Calibration Data
 
-For each sensor, add the sensor's measured value together with the consensus value determined in Step 4 to your calibration.yaml file using the following format:
+For each sensor, add the sensor's measured value together with the reference value to your calibration.yaml file using the following format:
 
 ```yaml
 sensor.office_temperature:
