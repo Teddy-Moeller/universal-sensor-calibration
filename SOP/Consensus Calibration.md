@@ -34,21 +34,11 @@ Allow the sensors to stabilize for at least 15 minutes so they reach thermal equ
 
 Once the readings have stabilized, record the value reported by each sensor. Read all sensors within as short a time as practical so they represent the same environmental conditions.
 
-#### 4. Value Analysis
+#### 4. Common Sense Evaluation
 
-If one sensor is a clear **outlier** (its reading differs significantly from the rest of the group), investigate the sensor before applying the calibration offset, as it may indicate a faulty device or incorrect placement.
-
-| Sensor | Reading |
-| ------ | ------: |
-| A      | 21.8 °C |
-| B      | 29.8 °C |
-| C      | 22.2 °C |
-
-I the above example it is clear sensor B is significantly higher than A and C. There is two techniques to determine if a value is an outlier:
-1: Common Sense
-2: Chi-Square test (x2)
-
-For normal Home Assistant projects the "Common Sense" approach should be good enough. But if you want to do a little extra or just want to learn to use the Chi Square Test I have found a good explanation here: https://academicworks.cuny.edu/cgi/viewcontent.cgi?params=/context/qb_oers/article/1133/&path_info=auto_convert.pdf
+Home sensors vary naturally in quality and precision. Instead of complex math, use your common sense after calibration:
+* **The 2-Degree Suggestion:** I suggest that all sensors should ideally stay within 2 degrees of each other (or the reference) after calibration.
+* **What to do:** If a sensor still drifts more than 2 degrees away, it might just be a low-quality unit. Consider placing it in a less critical room (like a hallway or garage) rather than throwing it away, or try changing the battery.
 
 #### 5. Determine the Consensus Value
 
