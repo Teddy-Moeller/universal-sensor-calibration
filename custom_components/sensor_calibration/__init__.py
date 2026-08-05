@@ -53,12 +53,131 @@ async def async_setup(hass, config):
                 value = float(new_state.state)
             except Exception:
                 return
+            
+            try:
+                point = calibration[0]
+                
+                measured = float(point["measured"])
+                reference = float(point["reference"])
+                
+                offset = reference - measured
+                
+                adjusted = round(value + offset, 2)
+    
+                attrs["calibrated_by"] = "sensor_calibration"
+    
+                hass.states.async_set(
+                    entity_id,
+                    adjusted,
+                    attrs
+                )
+    
+                return
+                
+            except Exception:
+                return
 
-            point = calibration[0]
+        elif point_count >= 2:
+            # Piecewise linear interpolation.
 
-            offset = point["reference"] - point["measured"]
+            try:
+                value = float(new_state.state)
+            except Exception:
+                return
 
-            adjusted = round(value + offset, 2)
+            try:
+                points = sorted(
+                    calibration,
+                    key=lambda p: p["measured"]
+                )
+
+                measured_values = [
+                    float(p["measured"])
+                    for p in points
+                ]
+
+                reference_values = [
+                    float(p["reference"])
+                    for p in points
+                ]
+
+            except Exception:
+                _LOGGER.error(
+                    "Invalid calibration data for %s",
+                    entity_id
+                )
+                return
+
+            # Require a reasonable calibration span.
+            spread = (
+                max(reference_values)
+                - min(reference_values)
+            )
+
+            if spread < 5:
+                _LOGGER.warning(
+                    "%s calibration span too small "
+                    "(%.2f < 5). Skipping calibration.",
+                    entity_id,
+                    spread
+                )
+                return
+
+            # Prevent division-by-zero conditions.
+            if len(set(measured_values)) != len(measured_values):
+                _LOGGER.warning(
+                    "%s contains duplicate measured values.",
+                    entity_id
+                )
+                return
+
+            # Below lowest point.
+            if value <= measured_values[0]:
+                p1 = points[0]
+                p2 = points[1]
+
+            # Above highest point.
+            elif value >= measured_values[-1]:
+                p1 = points[-2]
+                p2 = points[-1]
+
+            # Between two calibration points.
+            else:
+                p1 = None
+                p2 = None
+
+                for i in range(len(points) - 1):
+                    x1 = float(points[i]["measured"])
+                    x2 = float(points[i + 1]["measured"])
+
+                    if x1 <= value <= x2:
+                        p1 = points[i]
+                        p2 = points[i + 1]
+                        break
+
+                if p1 is None:
+                    return
+
+            x1 = float(p1["measured"])
+            y1 = float(p1["reference"])
+
+            x2 = float(p2["measured"])
+            y2 = float(p2["reference"])
+
+            if x1 == x2:
+                _LOGGER.warning(
+                    "%s contains identical measured values.",
+                    entity_id
+                )
+                return
+        
+            # Linear interpolation / extrapolation.
+            slope = (y2 - y1) / (x2 - x1)
+
+            adjusted = round(
+                y1 + slope * (value - x1),
+                2
+            )
 
             attrs["calibrated_by"] = "sensor_calibration"
 
@@ -68,21 +187,6 @@ async def async_setup(hass, config):
                 attrs
             )
 
-            return
-
-        elif point_count == 2:
-            # Linear calibration not yet implemented.
-            return
-
-        elif point_count >= 3:
-            # Multipoint calibration not yet implemented.
-            return
-
-        else:
-            _LOGGER.error(
-                "Unexpected point_count value: %s",
-                point_count
-            )
             return
 
     async_track_state_change_event(
