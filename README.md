@@ -82,17 +82,13 @@ sensor.name:
   reference: y
 ```
 
-# Roadmap
-
 ## v0.3.0
-
-Two-point linear calibration
-
-## v0.4.0
 
 Multi-point interpolation calibration
 
-## v0.5.0
+# Roadmap
+
+## v0.4.0
 
 First Public Release (HACS)
 
