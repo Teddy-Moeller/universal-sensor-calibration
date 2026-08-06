@@ -1,10 +1,12 @@
 # Standard Operating Procedure (SOP)
 
-## Multi point Calibration Using a Reference Thermometer
+## Multipoint Calibration Using a Reference Thermometer
 
 ### Purpose
 
-To Be Written
+This procedure performs relative calibration by comparing a sensor to a reference thermometer at multiple temperature points across the intended operating range.
+
+Using multiple calibration points allows Universal Sensor Calibration to improve accuracy across a wider range of temperatures than single-point calibration.
 
 ### Requirements
 
@@ -63,21 +65,23 @@ sensor.office_temperature:
     reference: 22.0
 ```
 
-The Universal Sensor Calibration will automatically calculate the offset and apply it to the sensor.
+Universal Sensor Calibration will automatically calculate the required corrections and apply them to the sensor.
 
-Save the file and restart Home Assistant for the new offsets to take effect.
+Save the file and restart Home Assistant for the new calibration to take effect.
 
 #### 6. Change environment
 
-Change the measured environment with at least 5 degrees. This is to strengthen the calibration as a cluster of measurements will make the calibration inaccurate, and in extreme cases worse than not calibrating.
+Change the environment by at least 5 degrees before recording the next calibration point. This improves calibration accuracy by spreading the calibration points across a wider range.
 
-I advise that raising the environment temperature to make it easy to follow the points in the calibration.yaml file.
+Calibration points that are clustered too closely together may reduce the effectiveness of the calibration and, in extreme cases, produce worse results than using fewer well-spaced calibration points.
+
+I suggest increasing the temperature for each subsequent calibration point. This makes it easier to keep the calibration.yaml entries organized in ascending order.
 
 #### 7. Repeat
 
 Evaluate if you desire more calibration measurements at this point.
 
-***If yo do*** - Repeat the process from **step 3.**
+***If you do*** - Repeat the process from **step 3.**
 
 ***If you don't*** - Skip to **step 8.**
 
@@ -91,5 +95,5 @@ Home sensors vary naturally in quality and precision. Instead of complex math, u
 
 * This procedure performs **relative calibration** (making sensors agree with a chosen reference), not **absolute calibration** (matching a traceable reference standard).
 * The quality of the calibration depends on the quality and stability of the chosen reference thermometer, and the amount of calibration measurements.
-* Few measurement points can hurt the accuracy, and too many may not yield much value. I will suggest between 2 and 5 measurement points.
+* Too few calibration points may limit calibration accuracy, while too many may provide little additional benefit. I suggest using between 2 and 5 calibration points for most home environments.
 * If a traceable reference thermometer is available, it can be used in place of the chosen reference thermometer to establish traceable accuracy.
